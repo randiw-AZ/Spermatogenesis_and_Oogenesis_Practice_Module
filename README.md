@@ -1,0 +1,1 @@
+I vibe-coded this interactive website on the UofA GenAI platform using ChatGPT 5.6 Luna. After adding the tab for Oogenesis and making some edits, I wasn't able to get the model to make the final change to the wording for Spermatogenesis Question 5. I had to edit the html file manually. 
