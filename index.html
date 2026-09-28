@@ -1,0 +1,2088 @@
+!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Meiosis in Human Gametogenesis Practice</title>
+
+  <style>
+    :root {
+      --ua-red: #ab0520;
+      --ua-red-dark: #8b0015;
+      --ua-blue: #0c234b;
+      --ua-blue-light: #1e5288;
+      --ua-sky: #e2f0f7;
+      --ua-gray: #f4f6f8;
+      --ua-border: #c8d2dc;
+      --ua-text: #1f2933;
+      --white: #ffffff;
+      --success: #176b3a;
+      --success-bg: #e9f7ef;
+      --warning: #7a4308;
+      --warning-bg: #fff5df;
+      --error-bg: #fff0f2;
+      --focus: #ffbf47;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ua-text);
+      background: var(--ua-gray);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.55;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    button:focus-visible,
+    input:focus-visible,
+    .order-item:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 3px;
+    }
+
+    .app {
+      max-width: 1100px;
+      min-height: 100vh;
+      margin: 0 auto;
+      background: var(--ua-gray);
+      border-right: 1px solid var(--ua-border);
+      border-left: 1px solid var(--ua-border);
+    }
+
+    .hero {
+      padding: 40px 32px;
+      color: var(--white);
+      background:
+        linear-gradient(
+          120deg,
+          rgba(12, 35, 75, 0.98),
+          rgba(30, 82, 136, 0.92)
+        ),
+        var(--ua-blue);
+      border-top: 8px solid var(--ua-red);
+    }
+
+    .hero-content {
+      max-width: 880px;
+    }
+
+    .eyebrow,
+    .part-label {
+      margin: 0 0 5px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow {
+      color: var(--white);
+    }
+
+    .part-label {
+      color: var(--ua-red);
+    }
+
+    h1 {
+      margin-bottom: 12px;
+      color: var(--white);
+      font-size: clamp(2rem, 5vw, 3.25rem);
+      line-height: 1.12;
+    }
+
+    h2,
+    h3 {
+      color: var(--ua-blue);
+    }
+
+    .hero p:last-child {
+      max-width: 820px;
+      margin-bottom: 0;
+      font-size: 1.08rem;
+    }
+
+    /* Tabs */
+
+    .tabs-wrap {
+      padding: 24px 24px 0;
+    }
+
+    .tab-list {
+      display: flex;
+      gap: 8px;
+      margin: 0;
+      padding: 8px 8px 0;
+      background: #dfe6ed;
+      border: 1px solid var(--ua-border);
+      border-bottom: 4px solid var(--ua-blue);
+      border-radius: 12px 12px 0 0;
+    }
+
+    .tab-button {
+      min-height: 50px;
+      padding: 11px 22px;
+      color: var(--ua-blue);
+      background: var(--white);
+      border: 2px solid var(--ua-border);
+      border-bottom: 0;
+      border-radius: 8px 8px 0 0;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .tab-button:hover {
+      color: var(--white);
+      background: var(--ua-blue-light);
+      border-color: var(--ua-blue-light);
+    }
+
+    .tab-button[aria-selected="true"] {
+      color: var(--white);
+      background: var(--ua-blue);
+      border-color: var(--ua-blue);
+    }
+
+    .tab-panel[hidden] {
+      display: none;
+    }
+
+    main {
+      padding: 24px;
+    }
+
+    .tab-introduction {
+      margin-bottom: 24px;
+      padding: 18px 20px;
+      color: var(--ua-blue);
+      background: var(--ua-sky);
+      border-left: 6px solid var(--ua-red);
+      border-radius: 8px;
+    }
+
+    .tab-introduction h2 {
+      margin-bottom: 7px;
+    }
+
+    .tab-introduction p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Cards */
+
+    .card {
+      margin-bottom: 24px;
+      padding: 26px;
+      background: var(--white);
+      border: 1px solid var(--ua-border);
+      border-radius: 12px;
+      box-shadow: 0 4px 14px rgba(12, 35, 75, 0.08);
+    }
+
+    .section-heading {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+
+    .section-heading h2,
+    .review h2 {
+      margin-bottom: 6px;
+      font-size: 1.65rem;
+      line-height: 1.25;
+    }
+
+    .badge {
+      flex: 0 0 auto;
+      padding: 5px 11px;
+      color: var(--white);
+      background: var(--ua-red);
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .tip {
+      margin: 18px 0;
+      padding: 13px 15px;
+      color: var(--ua-blue);
+      background: var(--ua-sky);
+      border-left: 5px solid var(--ua-blue-light);
+      border-radius: 5px;
+    }
+
+    /* Ordering activity */
+
+    .order-list {
+      margin: 20px 0;
+      padding: 0;
+      list-style: none;
+      counter-reset: order-position;
+    }
+
+    .order-item {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 12px;
+      align-items: center;
+      margin: 10px 0;
+      padding: 14px;
+      background: var(--white);
+      border: 2px solid var(--ua-border);
+      border-radius: 9px;
+      box-shadow: 0 2px 6px rgba(12, 35, 75, 0.07);
+      cursor: grab;
+      counter-increment: order-position;
+    }
+
+    .order-item::before {
+      display: flex;
+      width: 34px;
+      height: 34px;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      background: var(--ua-blue);
+      border-radius: 50%;
+      content: counter(order-position);
+      font-weight: 800;
+    }
+
+    .order-item:hover,
+    .order-item:focus {
+      border-color: var(--ua-blue-light);
+      box-shadow: 0 4px 12px rgba(12, 35, 75, 0.14);
+    }
+
+    .order-item.dragging {
+      opacity: 0.55;
+      border-color: var(--ua-red);
+    }
+
+    .order-item.correct-position {
+      background: var(--success-bg);
+      border-color: var(--success);
+    }
+
+    .order-item.incorrect-position {
+      background: var(--error-bg);
+      border-color: var(--ua-red);
+    }
+
+    .order-text {
+      font-weight: 650;
+    }
+
+    .order-controls {
+      display: flex;
+      gap: 5px;
+    }
+
+    .move-button {
+      width: 38px;
+      min-height: 38px;
+      padding: 3px;
+      color: var(--ua-blue);
+      background: var(--ua-gray);
+      border: 1px solid var(--ua-border);
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .move-button:hover:not(:disabled) {
+      color: var(--white);
+      background: var(--ua-blue);
+    }
+
+    .move-button:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    /* General buttons and feedback */
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .button {
+      min-height: 44px;
+      padding: 10px 17px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      font-weight: 750;
+      cursor: pointer;
+    }
+
+    .button:hover:not(:disabled) {
+      transform: translateY(-1px);
+    }
+
+    .button:disabled {
+      opacity: 0.58;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .button-primary {
+      color: var(--white);
+      background: var(--ua-red);
+      border-color: var(--ua-red);
+    }
+
+    .button-primary:hover:not(:disabled) {
+      background: var(--ua-red-dark);
+      border-color: var(--ua-red-dark);
+    }
+
+    .button-secondary {
+      color: var(--white);
+      background: var(--ua-blue);
+      border-color: var(--ua-blue);
+    }
+
+    .button-secondary:hover:not(:disabled) {
+      background: var(--ua-blue-light);
+      border-color: var(--ua-blue-light);
+    }
+
+    .button-outline {
+      color: var(--ua-blue);
+      background: var(--white);
+      border-color: var(--ua-blue);
+    }
+
+    .button-outline:hover:not(:disabled) {
+      color: var(--white);
+      background: var(--ua-blue);
+    }
+
+    .feedback,
+    .quiz-summary {
+      display: none;
+      margin-top: 18px;
+      padding: 15px;
+      border-radius: 7px;
+    }
+
+    .feedback.show,
+    .quiz-summary.show {
+      display: block;
+    }
+
+    .feedback-success {
+      color: var(--success);
+      background: var(--success-bg);
+      border-left: 5px solid var(--success);
+    }
+
+    .feedback-try {
+      color: var(--ua-blue);
+      background: var(--warning-bg);
+      border-left: 5px solid var(--warning);
+    }
+
+    /* Quiz */
+
+    .progress-wrap {
+      margin: 22px 0;
+    }
+
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 6px;
+      color: var(--ua-blue);
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .progress {
+      height: 13px;
+      overflow: hidden;
+      background: #dce3e9;
+      border-radius: 999px;
+    }
+
+    .progress-fill {
+      width: 0;
+      height: 100%;
+      background: linear-gradient(90deg, var(--ua-red), #ef4056);
+      border-radius: inherit;
+      transition: width 0.3s ease;
+    }
+
+    .question {
+      min-width: 0;
+      margin: 22px 0;
+      padding: 20px;
+      border: 1px solid var(--ua-border);
+      border-radius: 9px;
+    }
+
+    .question legend {
+      width: 100%;
+      padding: 0 0 13px;
+      color: var(--ua-blue);
+      font-weight: 800;
+    }
+
+    .question-number {
+      display: inline-block;
+      margin-right: 7px;
+      color: var(--ua-red);
+    }
+
+    .option-label {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      margin: 8px 0;
+      padding: 11px;
+      background: var(--ua-gray);
+      border: 2px solid transparent;
+      border-radius: 7px;
+      cursor: pointer;
+    }
+
+    .option-label:hover {
+      border-color: var(--ua-blue-light);
+    }
+
+    .option-label:focus-within {
+      outline: 3px solid var(--focus);
+      outline-offset: 2px;
+    }
+
+    .option-label input {
+      flex: 0 0 auto;
+      margin-top: 5px;
+      accent-color: var(--ua-red);
+    }
+
+    .option-label.selected-correct,
+    .option-label.correct-answer {
+      background: var(--success-bg);
+      border-color: var(--success);
+    }
+
+    .option-label.selected-incorrect {
+      background: var(--error-bg);
+      border-color: var(--ua-red);
+    }
+
+    .question-message {
+      min-height: 1.4em;
+      margin: 10px 0 0;
+      font-weight: 700;
+    }
+
+    .question-message.correct {
+      color: var(--success);
+    }
+
+    .question-message.incorrect,
+    .question-message.warning {
+      color: var(--ua-red);
+    }
+
+    .answer-explanation {
+      margin-top: 16px;
+      padding: 15px;
+      background: var(--ua-sky);
+      border-left: 5px solid var(--ua-blue);
+      border-radius: 5px;
+    }
+
+    .answer-explanation[hidden] {
+      display: none;
+    }
+
+    .answer-explanation h3 {
+      margin-bottom: 8px;
+      font-size: 1.05rem;
+    }
+
+    .answer-explanation ul {
+      margin: 8px 0 0;
+      padding-left: 22px;
+    }
+
+    .answer-explanation li {
+      margin-bottom: 10px;
+    }
+
+    .correct-text {
+      color: var(--success);
+      font-weight: 800;
+    }
+
+    .incorrect-text {
+      color: var(--ua-red);
+      font-weight: 800;
+    }
+
+    .quiz-summary {
+      color: var(--ua-blue);
+      background: var(--ua-sky);
+      border: 2px solid var(--ua-blue);
+    }
+
+    .quiz-summary h3 {
+      margin-bottom: 5px;
+    }
+
+    /* Review cards */
+
+    .term-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 15px;
+    }
+
+    .term-grid article {
+      padding: 16px;
+      background: var(--ua-gray);
+      border-top: 4px solid var(--ua-red);
+      border-radius: 7px;
+    }
+
+    .term-grid h3 {
+      margin-bottom: 5px;
+    }
+
+    .term-grid p {
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 700px) {
+      .hero {
+        padding: 28px 20px;
+      }
+
+      .tabs-wrap {
+        padding: 14px 14px 0;
+      }
+
+      .tab-list {
+        flex-direction: column;
+        padding: 8px;
+        border-bottom-width: 3px;
+      }
+
+      .tab-button {
+        width: 100%;
+        border: 2px solid var(--ua-border);
+        border-radius: 7px;
+      }
+
+      main {
+        padding: 14px;
+      }
+
+      .card {
+        padding: 18px;
+      }
+
+      .section-heading {
+        flex-direction: column;
+      }
+
+      .order-item {
+        grid-template-columns: auto 1fr;
+      }
+
+      .order-controls {
+        grid-column: 1 / -1;
+        justify-content: flex-end;
+      }
+
+      .term-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition: none !important;
+      }
+    }
+  </style>
+</head><body><div class="app"><header class="hero">
+<div class="hero-content">
+<p class="eyebrow">Endocrinology Practice Activity</p>
+<h1>Meiosis in Human Gametogenesis</h1>
+<p>Compare spermatogenesis and oogenesis by arranging the major events of meiosis in chronological order and answering questions about chromosome behavior, ploidy, developmental timing, meiotic arrests, and gamete formation.</p>
+</div>
+</header>
+<div class="tabs-wrap">
+<div class="tab-list" role="tablist" aria-label="Choose a gametogenesis activity"><button type="button" id="spermatogenesis-tab" class="tab-button" role="tab" aria-selected="true" aria-controls="spermatogenesis-panel" tabindex="0"> Spermatogenesis </button> <button type="button" id="oogenesis-tab" class="tab-button" role="tab" aria-selected="false" aria-controls="oogenesis-panel" tabindex="-1"> Oogenesis </button></div>
+</div>
+<main><!-- SPERMATOGENESIS TAB -->
+<section id="spermatogenesis-panel" class="tab-panel" role="tabpanel" aria-labelledby="spermatogenesis-tab">
+<div class="tab-introduction">
+<h2>Spermatogenesis</h2>
+<p>Follow male germ-cell development from DNA replication in a diploid spermatogonium through meiosis, spermiogenesis, and release of spermatozoa into the seminiferous-tubule lumen.</p>
+</div>
+<section class="card" aria-labelledby="sperm-order-title">
+<div class="section-heading">
+<div>
+<p class="part-label">Part 1</p>
+<h2 id="sperm-order-title">Put the events in order</h2>
+</div>
+<span class="badge">8 events</span></div>
+<p>Drag the cards into the correct chronological order. You may also use the arrow buttons to move cards with a keyboard or touchscreen.</p>
+<div class="tip"><strong>Important distinction:</strong> Homologous chromosomes separate during meiosis I, whereas sister chromatids separate during meiosis II.</div>
+<ol id="sperm-order-list" class="order-list" aria-label="Spermatogenesis events to arrange"></ol>
+<div class="button-row"><button type="button" id="sperm-check-order" class="button button-primary"> Check my order </button> <button type="button" id="sperm-shuffle-order" class="button button-secondary"> Shuffle again </button> <button type="button" id="sperm-reveal-order" class="button button-outline"> Show correct order </button></div>
+<div id="sperm-order-feedback" class="feedback" role="status" aria-live="polite"></div>
+</section>
+<section class="card" aria-labelledby="sperm-quiz-title">
+<div class="section-heading">
+<div>
+<p class="part-label">Part 2</p>
+<h2 id="sperm-quiz-title">Check your understanding</h2>
+</div>
+<span class="badge">5 questions</span></div>
+<p>Select one answer for each question and choose <strong>Check answer</strong>. The activity will identify the correct answer and explain every option.</p>
+<div class="progress-wrap">
+<div class="progress-label"><span>Quiz progress</span> <span id="sperm-progress-text">0 of 5 answered</span></div>
+<div id="sperm-progress" class="progress" role="progressbar" aria-label="Spermatogenesis quiz progress" aria-valuemin="0" aria-valuemax="5" aria-valuenow="0">
+<div id="sperm-progress-fill" class="progress-fill"></div>
+</div>
+</div>
+<div id="sperm-quiz-container"></div>
+<div id="sperm-quiz-summary" class="quiz-summary" role="status" aria-live="polite"></div>
+<div class="button-row"><button type="button" id="sperm-reset-quiz" class="button button-secondary"> Reset quiz </button></div>
+</section>
+</section>
+<!-- OOGENESIS TAB -->
+<section id="oogenesis-panel" class="tab-panel" role="tabpanel" aria-labelledby="oogenesis-tab" hidden="">
+<div class="tab-introduction">
+<h2>Oogenesis</h2>
+<p>Follow female germ-cell development from DNA replication in a diploid oogonium through two meiotic arrests and the fertilization-dependent completion of meiosis II.</p>
+</div>
+<section class="card" aria-labelledby="oocyte-order-title">
+<div class="section-heading">
+<div>
+<p class="part-label">Part 1</p>
+<h2 id="oocyte-order-title">Put the events in order</h2>
+</div>
+<span class="badge">9 events</span></div>
+<p>Drag the cards into the correct chronological order. You may also use the arrow buttons to move cards with a keyboard or touchscreen.</p>
+<div class="tip"><strong>Watch the two arrests:</strong> A primary oocyte arrests in prophase I during fetal development. After completing meiosis I shortly before ovulation, the secondary oocyte arrests in metaphase II until fertilization.</div>
+<ol id="oocyte-order-list" class="order-list" aria-label="Oogenesis events to arrange"></ol>
+<div class="button-row"><button type="button" id="oocyte-check-order" class="button button-primary"> Check my order </button> <button type="button" id="oocyte-shuffle-order" class="button button-secondary"> Shuffle again </button> <button type="button" id="oocyte-reveal-order" class="button button-outline"> Show correct order </button></div>
+<div id="oocyte-order-feedback" class="feedback" role="status" aria-live="polite"></div>
+</section>
+<section class="card" aria-labelledby="oocyte-quiz-title">
+<div class="section-heading">
+<div>
+<p class="part-label">Part 2</p>
+<h2 id="oocyte-quiz-title">Check your understanding</h2>
+</div>
+<span class="badge">5 questions</span></div>
+<p>Select one answer for each question and choose <strong>Check answer</strong>. The activity will identify the correct answer and explain every option.</p>
+<div class="progress-wrap">
+<div class="progress-label"><span>Quiz progress</span> <span id="oocyte-progress-text">0 of 5 answered</span></div>
+<div id="oocyte-progress" class="progress" role="progressbar" aria-label="Oogenesis quiz progress" aria-valuemin="0" aria-valuemax="5" aria-valuenow="0">
+<div id="oocyte-progress-fill" class="progress-fill"></div>
+</div>
+</div>
+<div id="oocyte-quiz-container"></div>
+<div id="oocyte-quiz-summary" class="quiz-summary" role="status" aria-live="polite"></div>
+<div class="button-row"><button type="button" id="oocyte-reset-quiz" class="button button-secondary"> Reset quiz </button></div>
+</section>
+</section>
+<!-- SHARED REVIEW -->
+<section class="card review" aria-labelledby="review-title">
+<h2 id="review-title">Key concepts</h2>
+<div class="term-grid">
+<article>
+<h3>Diploid and haploid</h3>
+<p>Diploid cells have two homologous chromosome sets (<strong>2n</strong>). Haploid cells have one chromosome set (<strong>n</strong>).</p>
+</article>
+<article>
+<h3>Meiosis I</h3>
+<p>Homologous chromosomes pair during prophase I and separate during anaphase I. Sister chromatids remain joined.</p>
+</article>
+<article>
+<h3>Meiosis II</h3>
+<p>Sister chromatids separate during anaphase II. DNA does not replicate between meiosis I and meiosis II.</p>
+</article>
+<article>
+<h3>Different developmental timing</h3>
+<p>Spermatogenesis proceeds continuously after puberty, whereas human oogenesis includes prolonged arrests in prophase I and metaphase II.</p>
+</article>
+</div>
+</section>
+</main></div>
+<p><script>
+    (function () {
+      "use strict";
+
+      /*
+        Activity content
+      */
+
+      const activities = {
+        sperm: {
+          orderSteps: [
+            {
+              id: 1,
+              text:
+                "DNA replicates in a diploid spermatogonium before entry into meiosis."
+            },
+            {
+              id: 2,
+              text:
+                "Homologous chromosomes pair during prophase I in a primary spermatocyte."
+            },
+            {
+              id: 3,
+              text:
+                "Homologous chromosomes separate during anaphase I in the primary spermatocyte."
+            },
+            {
+              id: 4,
+              text:
+                "Meiosis I produces haploid secondary spermatocytes; each chromosome still consists of two sister chromatids."
+            },
+            {
+              id: 5,
+              text:
+                "Sister chromatids separate during anaphase II in the secondary spermatocytes."
+            },
+            {
+              id: 6,
+              text:
+                "Completion of meiosis II produces haploid spermatids."
+            },
+            {
+              id: 7,
+              text:
+                "During spermiogenesis, spermatids differentiate into spermatozoa."
+            },
+            {
+              id: 8,
+              text:
+                "Spermatozoa are released into the lumen of the seminiferous tubule during spermiation."
+            }
+          ],
+
+          quiz: [
+            {
+              question:
+                "Which event must occur before a diploid spermatogonium enters meiosis?",
+              options: [
+                {
+                  text: "DNA replication",
+                  correct: true,
+                  explanation:
+                    "DNA replication occurs before meiosis begins. It produces duplicated chromosomes, each consisting of two sister chromatids."
+                },
+                {
+                  text: "Separation of homologous chromosomes",
+                  correct: false,
+                  explanation:
+                    "Separation of homologous chromosomes occurs later, during anaphase I in a primary spermatocyte."
+                },
+                {
+                  text: "Separation of sister chromatids",
+                  correct: false,
+                  explanation:
+                    "Separation of sister chromatids occurs during anaphase II, after meiosis I has produced haploid secondary spermatocytes."
+                },
+                {
+                  text: "Spermiogenesis",
+                  correct: false,
+                  explanation:
+                    "Spermiogenesis occurs after meiosis II. During spermiogenesis, haploid spermatids differentiate into spermatozoa."
+                }
+              ]
+            },
+
+            {
+              question:
+                "During which stage and in which cell type do homologous chromosomes pair?",
+              options: [
+                {
+                  text: "Prophase I in a primary spermatocyte",
+                  correct: true,
+                  explanation:
+                    "Homologous chromosomes pair, or undergo synapsis, during prophase I in a primary spermatocyte."
+                },
+                {
+                  text: "Anaphase I in a primary spermatocyte",
+                  correct: false,
+                  explanation:
+                    "During anaphase I in a primary spermatocyte, homologous chromosomes separate rather than pair."
+                },
+                {
+                  text: "Prophase II in a secondary spermatocyte",
+                  correct: false,
+                  explanation:
+                    "Homologous chromosomes do not pair during prophase II because the homologs were separated during meiosis I."
+                },
+                {
+                  text: "Spermiogenesis in a spermatid",
+                  correct: false,
+                  explanation:
+                    "Spermiogenesis is the differentiation of a spermatid into a spermatozoon. It does not involve homologous chromosome pairing."
+                }
+              ]
+            },
+
+            {
+              question:
+                "What separates during anaphase I of spermatogenesis?",
+              options: [
+                {
+                  text: "Homologous chromosomes",
+                  correct: true,
+                  explanation:
+                    "Homologous chromosomes separate during anaphase I, reducing the number of chromosome sets from diploid to haploid."
+                },
+                {
+                  text: "Sister chromatids",
+                  correct: false,
+                  explanation:
+                    "Sister chromatids remain joined during anaphase I and separate during anaphase II."
+                },
+                {
+                  text: "Spermatids from Sertoli cells",
+                  correct: false,
+                  explanation:
+                    "The release of spermatozoa from Sertoli cells occurs during spermiation, not during anaphase I."
+                },
+                {
+                  text: "The sperm head from the flagellum",
+                  correct: false,
+                  explanation:
+                    "The head and flagellum are parts of one spermatozoon and are not separated during meiosis."
+                }
+              ]
+            },
+
+            {
+              question:
+                "Which statement best describes a secondary spermatocyte immediately after meiosis I?",
+              options: [
+                {
+                  text:
+                    "It is haploid, but each chromosome still consists of two sister chromatids.",
+                  correct: true,
+                  explanation:
+                    "Homologous chromosomes have separated, making the cell haploid, but sister chromatids remain joined until meiosis II."
+                },
+                {
+                  text:
+                    "It is diploid and contains chromosomes that have not replicated.",
+                  correct: false,
+                  explanation:
+                    "The cell is haploid after meiosis I, and its chromosomes are still duplicated."
+                },
+                {
+                  text:
+                    "It is haploid and has already differentiated into a spermatozoon.",
+                  correct: false,
+                  explanation:
+                    "A secondary spermatocyte must complete meiosis II to form spermatids, which then undergo spermiogenesis."
+                },
+                {
+                  text:
+                    "It is diploid because its sister chromatids are still joined.",
+                  correct: false,
+                  explanation:
+                    "Ploidy is determined by the number of homologous chromosome sets, not by the number of chromatids in each chromosome."
+                }
+              ]
+            },
+
+            {
+              question:
+                "Which sequence correctly describes the events from anaphase II through release into the seminiferous-tubule lumen?",
+              options: [
+                {
+                  text:
+                    "Sister chromatids separate → haploid spermatids form → spermiogenesis produces spermatozoa → sperm are released into the lumen",
+                  correct: true,
+                  explanation:
+                    "Anaphase II separates sister chromatids. Completion of meiosis II produces spermatids, spermiogenesis produces spermatozoa, and sperm are released into the lumen."
+                },
+                {
+                  text:
+                    "Homologous chromosomes separate → haploid spermatids form → sister chromatids separate → spermiogenesis produces spermatozoa",
+                  correct: false,
+                  explanation:
+                    "Homologous chromosomes separate during meiosis I, which produces secondary spermatocytes rather than spermatids. Sister chromatids separate during meiosis II before spermatids form."
+                },
+                {
+                  text:
+                    "Sister chromatids separate → haploid spermatids form → sperm are released into the lumen → spermiogenesis produces spermatozoa",
+                  correct: false,
+                  explanation:
+                    "This reverses the roles of release of sperm into the lumen and spermiogenesis. Spermiogenesis produces spermatozoa; then sperm are released into the lumen."
+                },
+                {
+                  text:
+                    "Sister chromatids separate → haploid secondary spermatocytes form → spermiogenesis produces spermatozoa → sperm are released into the lumen",
+                  correct: false,
+                  explanation:
+                    "Secondary spermatocytes form after meiosis I. Completion of meiosis II following sister-chromatid separation produces spermatids."
+                }
+              ]
+            }
+          ]
+        },
+
+        oocyte: {
+          orderSteps: [
+            {
+              id: 1,
+              text:
+                "DNA replicates in diploid oogonia prior to entry into meiosis."
+            },
+            {
+              id: 2,
+              text:
+                "Oogonia enter meiosis, and homologous chromosomes pair during prophase I in the primary oocyte."
+            },
+            {
+              id: 3,
+              text:
+                "The primary oocyte arrests in prophase I within a primordial follicle during fetal development."
+            },
+            {
+              id: 4,
+              text:
+                "Shortly before ovulation, the primary oocyte resumes meiosis I, and homologous chromosomes separate during anaphase I."
+            },
+            {
+              id: 5,
+              text:
+                "Completion of meiosis I produces a haploid secondary oocyte; each chromosome still consists of two sister chromatids."
+            },
+            {
+              id: 6,
+              text:
+                "The secondary oocyte enters meiosis II, arrests in metaphase II, and is ovulated in this arrested state."
+            },
+            {
+              id: 7,
+              text:
+                "Fertilization by a spermatozoon triggers the secondary oocyte to resume meiosis II."
+            },
+            {
+              id: 8,
+              text:
+                "Sister chromatids separate during anaphase II in the secondary oocyte."
+            },
+            {
+              id: 9,
+              text:
+                "Completion of meiosis II produces a haploid ovum and a second polar body."
+            }
+          ],
+
+          quiz: [
+            {
+              question:
+                "Which statement correctly describes the first prolonged meiotic arrest in human oogenesis?",
+              options: [
+                {
+                  text:
+                    "A primary oocyte arrests in prophase I during fetal development.",
+                  correct: true,
+                  explanation:
+                    "Primary oocytes enter meiosis during fetal development and then arrest in prophase I within primordial follicles."
+                },
+                {
+                  text:
+                    "An oogonium arrests in metaphase I before DNA replication.",
+                  correct: false,
+                  explanation:
+                    "An oogonium replicates its DNA and enters meiosis before the prophase I arrest. The arrest is not in metaphase I."
+                },
+                {
+                  text:
+                    "A secondary oocyte arrests in prophase I during fetal development.",
+                  correct: false,
+                  explanation:
+                    "Secondary oocytes do not form until primary oocytes complete meiosis I shortly before ovulation."
+                },
+                {
+                  text:
+                    "An ovum arrests in metaphase II until puberty.",
+                  correct: false,
+                  explanation:
+                    "The cell arrested in metaphase II is a secondary oocyte, not an ovum, and this arrest occurs near ovulation rather than during fetal development."
+                }
+              ]
+            },
+
+            {
+              question:
+                "Which event occurs shortly before ovulation?",
+              options: [
+                {
+                  text:
+                    "A primary oocyte resumes and completes meiosis I.",
+                  correct: true,
+                  explanation:
+                    "Shortly before ovulation, a selected primary oocyte resumes meiosis I, separates homologous chromosomes, and forms a secondary oocyte."
+                },
+                {
+                  text:
+                    "A secondary oocyte completes meiosis II without fertilization.",
+                  correct: false,
+                  explanation:
+                    "The secondary oocyte normally remains arrested in metaphase II and completes meiosis II only after fertilization."
+                },
+                {
+                  text:
+                    "A diploid oogonium begins its fetal prophase I arrest.",
+                  correct: false,
+                  explanation:
+                    "The prophase I arrest begins in a primary oocyte during fetal development, long before ovulation."
+                },
+                {
+                  text:
+                    "Sister chromatids separate to produce a mature ovum.",
+                  correct: false,
+                  explanation:
+                    "Sister chromatids separate during anaphase II after fertilization, not shortly before ovulation."
+                }
+              ]
+            },
+
+            {
+              question:
+                "Which statement best describes the secondary oocyte immediately after meiosis I?",
+              options: [
+                {
+                  text:
+                    "It is haploid, but each chromosome still consists of two sister chromatids.",
+                  correct: true,
+                  explanation:
+                    "Meiosis I separates homologous chromosomes, making the secondary oocyte haploid. Sister chromatids remain joined until meiosis II."
+                },
+                {
+                  text:
+                    "It is diploid because its chromosomes still have two sister chromatids.",
+                  correct: false,
+                  explanation:
+                    "Ploidy depends on the number of homologous chromosome sets, not the number of chromatids per chromosome."
+                },
+                {
+                  text:
+                    "It is haploid, and all sister chromatids have already separated.",
+                  correct: false,
+                  explanation:
+                    "Sister chromatids do not separate during meiosis I. They remain joined until anaphase II."
+                },
+                {
+                  text:
+                    "It is diploid and arrests in prophase I.",
+                  correct: false,
+                  explanation:
+                    "The prophase I arrest occurs earlier in a diploid primary oocyte. The secondary oocyte is haploid and arrests in metaphase II."
+                }
+              ]
+            },
+
+            {
+              question:
+                "What is the developmental state of the cell that is normally ovulated in humans?",
+              options: [
+                {
+                  text:
+                    "A haploid secondary oocyte arrested in metaphase II",
+                  correct: true,
+                  explanation:
+                    "The ovulated cell is a secondary oocyte that has completed meiosis I and entered meiosis II, where it is arrested at metaphase II."
+                },
+                {
+                  text:
+                    "A diploid primary oocyte arrested in prophase I",
+                  correct: false,
+                  explanation:
+                    "Primary oocytes are arrested in prophase I within ovarian follicles. The selected oocyte normally completes meiosis I before ovulation."
+                },
+                {
+                  text:
+                    "A haploid ovum that has completed meiosis II",
+                  correct: false,
+                  explanation:
+                    "A secondary oocyte normally completes meiosis II only after fertilization, so an ovum has not yet formed at ovulation."
+                },
+                {
+                  text:
+                    "A diploid oogonium in metaphase II",
+                  correct: false,
+                  explanation:
+                    "Oogonia are premeiotic diploid germ cells. The cell in metaphase II is a haploid secondary oocyte."
+                }
+              ]
+            },
+
+            {
+              question:
+                "Which sequence correctly describes events from the prophase I arrest through formation of the ovum?",
+              options: [
+                {
+                  text:
+                    "Primary oocyte arrests in prophase I → completes meiosis I shortly before ovulation → secondary oocyte arrests in metaphase II → fertilization triggers sister-chromatid separation → haploid ovum forms",
+                  correct: true,
+                  explanation:
+                    "This sequence correctly identifies both arrests, formation of the secondary oocyte after meiosis I, and fertilization-dependent completion of meiosis II."
+                },
+                {
+                  text:
+                    "Primary oocyte arrests in prophase I → sister chromatids separate shortly before ovulation → secondary oocyte arrests in metaphase II → fertilization separates homologous chromosomes → haploid ovum forms",
+                  correct: false,
+                  explanation:
+                    "This reverses the chromosome-separation events. Homologous chromosomes separate during meiosis I; sister chromatids separate during meiosis II after fertilization."
+                },
+                {
+                  text:
+                    "Primary oocyte arrests in metaphase I → completes meiosis II shortly before ovulation → secondary oocyte arrests in prophase II → fertilization produces a diploid ovum",
+                  correct: false,
+                  explanation:
+                    "The first arrest is in prophase I, meiosis I is completed shortly before ovulation, and the secondary oocyte arrests in metaphase II. The ovum is haploid."
+                },
+                {
+                  text:
+                    "Primary oocyte arrests in prophase I → completes meiosis I shortly before ovulation → ovum arrests in metaphase II → fertilization produces a secondary oocyte",
+                  correct: false,
+                  explanation:
+                    "Completion of meiosis I produces the secondary oocyte. The secondary oocyte, not the ovum, arrests in metaphase II; completion of meiosis II produces the ovum."
+                }
+              ]
+            }
+          ]
+        }
+      };
+
+      /*
+        Tab controls
+      */
+
+      const tabButtons = Array.from(
+        document.querySelectorAll('[role="tab"]')
+      );
+
+      function activateTab(selectedTab, moveFocus) {
+        tabButtons.forEach(function (tab) {
+          const isSelected = tab === selectedTab;
+          const panel = document.getElementById(
+            tab.getAttribute("aria-controls")
+          );
+
+          tab.setAttribute(
+            "aria-selected",
+            isSelected ? "true" : "false"
+          );
+
+          tab.tabIndex = isSelected ? 0 : -1;
+          panel.hidden = !isSelected;
+        });
+
+        if (moveFocus) {
+          selectedTab.focus();
+        }
+      }
+
+      tabButtons.forEach(function (tab, index) {
+        tab.addEventListener("click", function () {
+          activateTab(tab, false);
+        });
+
+        tab.addEventListener("keydown", function (event) {
+          let newIndex = index;
+
+          if (event.key === "ArrowRight") {
+            newIndex = (index + 1) % tabButtons.length;
+          } else if (event.key === "ArrowLeft") {
+            newIndex =
+              (index - 1 + tabButtons.length) %
+              tabButtons.length;
+          } else if (event.key === "Home") {
+            newIndex = 0;
+          } else if (event.key === "End") {
+            newIndex = tabButtons.length - 1;
+          } else {
+            return;
+          }
+
+          event.preventDefault();
+          activateTab(tabButtons[newIndex], true);
+        });
+      });
+
+      /*
+        Utility functions
+      */
+
+      function shuffleArray(array) {
+        const copy = array.slice();
+
+        for (let i = copy.length - 1; i > 0; i -= 1) {
+          const randomIndex = Math.floor(
+            Math.random() * (i + 1)
+          );
+
+          const temporary = copy[i];
+          copy[i] = copy[randomIndex];
+          copy[randomIndex] = temporary;
+        }
+
+        return copy;
+      }
+
+      /*
+        Ordering activity
+      */
+
+      function createOrderingActivity(prefix, steps) {
+        const orderList = document.getElementById(
+          prefix + "-order-list"
+        );
+
+        const feedback = document.getElementById(
+          prefix + "-order-feedback"
+        );
+
+        const checkButton = document.getElementById(
+          prefix + "-check-order"
+        );
+
+        const shuffleButton = document.getElementById(
+          prefix + "-shuffle-order"
+        );
+
+        const revealButton = document.getElementById(
+          prefix + "-reveal-order"
+        );
+
+        let draggedItem = null;
+
+        function clearFeedback() {
+          feedback.className = "feedback";
+          feedback.textContent = "";
+
+          orderList
+            .querySelectorAll(".order-item")
+            .forEach(function (item) {
+              item.classList.remove(
+                "correct-position",
+                "incorrect-position"
+              );
+            });
+        }
+
+        function updateMoveButtons() {
+          const items = Array.from(
+            orderList.querySelectorAll(".order-item")
+          );
+
+          items.forEach(function (item, index) {
+            const upButton =
+              item.querySelector(".move-up");
+
+            const downButton =
+              item.querySelector(".move-down");
+
+            const eventText =
+              item.querySelector(".order-text").textContent;
+
+            upButton.disabled = index === 0;
+            downButton.disabled =
+              index === items.length - 1;
+
+            item.setAttribute(
+              "aria-label",
+              "Position " +
+                (index + 1) +
+                ": " +
+                eventText
+            );
+          });
+        }
+
+        function createOrderItem(step) {
+          const item = document.createElement("li");
+          item.className = "order-item";
+          item.dataset.id = String(step.id);
+          item.draggable = true;
+          item.tabIndex = 0;
+
+          const text = document.createElement("span");
+          text.className = "order-text";
+          text.textContent = step.text;
+
+          const controls =
+            document.createElement("span");
+
+          controls.className = "order-controls";
+
+          const upButton =
+            document.createElement("button");
+
+          upButton.type = "button";
+          upButton.className =
+            "move-button move-up";
+          upButton.textContent = "▲";
+          upButton.title = "Move up";
+          upButton.setAttribute(
+            "aria-label",
+            "Move this event up"
+          );
+
+          const downButton =
+            document.createElement("button");
+
+          downButton.type = "button";
+          downButton.className =
+            "move-button move-down";
+          downButton.textContent = "▼";
+          downButton.title = "Move down";
+          downButton.setAttribute(
+            "aria-label",
+            "Move this event down"
+          );
+
+          controls.appendChild(upButton);
+          controls.appendChild(downButton);
+
+          item.appendChild(text);
+          item.appendChild(controls);
+
+          item.addEventListener(
+            "dragstart",
+            function (event) {
+              draggedItem = item;
+              item.classList.add("dragging");
+
+              event.dataTransfer.effectAllowed = "move";
+              event.dataTransfer.setData(
+                "text/plain",
+                item.dataset.id
+              );
+            }
+          );
+
+          item.addEventListener("dragend", function () {
+            item.classList.remove("dragging");
+            draggedItem = null;
+            updateMoveButtons();
+            clearFeedback();
+          });
+
+          upButton.addEventListener("click", function () {
+            const previousItem =
+              item.previousElementSibling;
+
+            if (previousItem) {
+              orderList.insertBefore(
+                item,
+                previousItem
+              );
+
+              updateMoveButtons();
+              clearFeedback();
+              item.focus();
+            }
+          });
+
+          downButton.addEventListener(
+            "click",
+            function () {
+              const nextItem =
+                item.nextElementSibling;
+
+              if (nextItem) {
+                orderList.insertBefore(
+                  nextItem,
+                  item
+                );
+
+                updateMoveButtons();
+                clearFeedback();
+                item.focus();
+              }
+            }
+          );
+
+          return item;
+        }
+
+        function renderOrder(orderedSteps) {
+          orderList.innerHTML = "";
+
+          orderedSteps.forEach(function (step) {
+            orderList.appendChild(
+              createOrderItem(step)
+            );
+          });
+
+          updateMoveButtons();
+          clearFeedback();
+        }
+
+        function shuffleOrder() {
+          let shuffled;
+
+          do {
+            shuffled = shuffleArray(steps);
+          } while (
+            shuffled.every(function (step, index) {
+              return step.id === index + 1;
+            })
+          );
+
+          renderOrder(shuffled);
+        }
+
+        orderList.addEventListener(
+          "dragover",
+          function (event) {
+            event.preventDefault();
+
+            if (!draggedItem) {
+              return;
+            }
+
+            const target =
+              event.target.closest(".order-item");
+
+            if (
+              !target ||
+              target === draggedItem ||
+              target.parentElement !== orderList
+            ) {
+              return;
+            }
+
+            const rectangle =
+              target.getBoundingClientRect();
+
+            const placeAfter =
+              event.clientY >
+              rectangle.top +
+                rectangle.height / 2;
+
+            if (placeAfter) {
+              orderList.insertBefore(
+                draggedItem,
+                target.nextElementSibling
+              );
+            } else {
+              orderList.insertBefore(
+                draggedItem,
+                target
+              );
+            }
+          }
+        );
+
+        orderList.addEventListener(
+          "drop",
+          function (event) {
+            event.preventDefault();
+            updateMoveButtons();
+            clearFeedback();
+          }
+        );
+
+        checkButton.addEventListener(
+          "click",
+          function () {
+            let correctPositions = 0;
+
+            orderList
+              .querySelectorAll(".order-item")
+              .forEach(function (item, index) {
+                const isCorrect =
+                  Number(item.dataset.id) ===
+                  index + 1;
+
+                item.classList.toggle(
+                  "correct-position",
+                  isCorrect
+                );
+
+                item.classList.toggle(
+                  "incorrect-position",
+                  !isCorrect
+                );
+
+                if (isCorrect) {
+                  correctPositions += 1;
+                }
+              });
+
+            if (correctPositions === steps.length) {
+              feedback.className =
+                "feedback show feedback-success";
+
+              feedback.innerHTML =
+                "<strong>Correct!</strong> You placed all " +
+                steps.length +
+                " events in the correct chronological order.";
+            } else {
+              feedback.className =
+                "feedback show feedback-try";
+
+              feedback.innerHTML =
+                "<strong>Keep working.</strong> " +
+                correctPositions +
+                " of " +
+                steps.length +
+                " events are in the correct position. " +
+                "Green cards are correctly placed; red cards need to be moved.";
+            }
+          }
+        );
+
+        shuffleButton.addEventListener(
+          "click",
+          shuffleOrder
+        );
+
+        revealButton.addEventListener(
+          "click",
+          function () {
+            renderOrder(steps);
+
+            orderList
+              .querySelectorAll(".order-item")
+              .forEach(function (item) {
+                item.classList.add(
+                  "correct-position"
+                );
+              });
+
+            feedback.className =
+              "feedback show feedback-success";
+
+            feedback.innerHTML =
+              "<strong>Correct order shown.</strong> Review the chromosome behavior, cell type, and developmental timing at each step.";
+          }
+        );
+
+        shuffleOrder();
+      }
+
+      /*
+        Multiple-choice quiz
+
+        The distractors are shuffled and the correct answer is
+        placed in a different position for each question. The
+        positions rotate whenever the student resets the quiz.
+      */
+
+      function createQuiz(prefix, questions) {
+        const container = document.getElementById(
+          prefix + "-quiz-container"
+        );
+
+        const resetButton = document.getElementById(
+          prefix + "-reset-quiz"
+        );
+
+        const progressText = document.getElementById(
+          prefix + "-progress-text"
+        );
+
+        const progressFill = document.getElementById(
+          prefix + "-progress-fill"
+        );
+
+        const progressBar = document.getElementById(
+          prefix + "-progress"
+        );
+
+        const summary = document.getElementById(
+          prefix + "-quiz-summary"
+        );
+
+        let answeredCount = 0;
+        let score = 0;
+        let renderCycle = 0;
+
+        /*
+          First-attempt correct-answer positions:
+          Question 1: B
+          Question 2: C
+          Question 3: D
+          Question 4: A
+          Question 5: B
+
+          Positions rotate after every quiz reset.
+        */
+        function arrangeOptions(
+          options,
+          questionIndex,
+          cycle
+        ) {
+          const correctOption = options.find(
+            function (option) {
+              return option.correct;
+            }
+          );
+
+          const distractors = shuffleArray(
+            options.filter(function (option) {
+              return !option.correct;
+            })
+          );
+
+          const startingPositions = [1, 2, 3, 0, 1];
+
+          const correctPosition =
+            (
+              startingPositions[
+                questionIndex %
+                  startingPositions.length
+              ] + cycle
+            ) % options.length;
+
+          distractors.splice(
+            correctPosition,
+            0,
+            correctOption
+          );
+
+          return distractors;
+        }
+
+        function updateProgress() {
+          const percentage =
+            (answeredCount / questions.length) *
+            100;
+
+          progressText.textContent =
+            answeredCount +
+            " of " +
+            questions.length +
+            " answered";
+
+          progressFill.style.width =
+            percentage + "%";
+
+          progressBar.setAttribute(
+            "aria-valuenow",
+            String(answeredCount)
+          );
+        }
+
+        function showSummary() {
+          let message;
+
+          if (score === questions.length) {
+            message =
+              "Excellent work. You correctly identified the sequence, chromosome behavior, cell types, and developmental timing.";
+          } else if (score >= 3) {
+            message =
+              "Good progress. Review the explanations for the questions you missed and then try the quiz again.";
+          } else {
+            message =
+              "Review the ordering activity and try again. Focus on what separates during each meiotic division and when each cell type forms.";
+          }
+
+          summary.className =
+            "quiz-summary show";
+
+          summary.innerHTML =
+            "<h3>Quiz complete: " +
+            score +
+            " out of " +
+            questions.length +
+            " correct</h3><p>" +
+            message +
+            "</p>";
+        }
+
+        function renderQuiz() {
+          container.innerHTML = "";
+          summary.className = "quiz-summary";
+          summary.textContent = "";
+
+          answeredCount = 0;
+          score = 0;
+          updateProgress();
+
+          const currentRenderCycle = renderCycle;
+          renderCycle += 1;
+
+          questions.forEach(function (
+            questionData,
+            questionIndex
+          ) {
+            const displayedOptions =
+              arrangeOptions(
+                questionData.options,
+                questionIndex,
+                currentRenderCycle
+              );
+
+            const fieldset =
+              document.createElement("fieldset");
+
+            fieldset.className = "question";
+            fieldset.dataset.answered = "false";
+
+            const legend =
+              document.createElement("legend");
+
+            const questionNumber =
+              document.createElement("span");
+
+            questionNumber.className =
+              "question-number";
+
+            questionNumber.textContent =
+              "Question " +
+              (questionIndex + 1) +
+              ".";
+
+            legend.appendChild(questionNumber);
+
+            legend.appendChild(
+              document.createTextNode(
+                " " + questionData.question
+              )
+            );
+
+            fieldset.appendChild(legend);
+
+            const optionsContainer =
+              document.createElement("div");
+
+            displayedOptions.forEach(function (
+              option,
+              optionIndex
+            ) {
+              const label =
+                document.createElement("label");
+
+              label.className = "option-label";
+
+              const radio =
+                document.createElement("input");
+
+              radio.type = "radio";
+              radio.name =
+                prefix +
+                "-question-" +
+                questionIndex;
+
+              radio.value = String(optionIndex);
+
+              const optionText =
+                document.createElement("span");
+
+              optionText.textContent = option.text;
+
+              label.appendChild(radio);
+              label.appendChild(optionText);
+              optionsContainer.appendChild(label);
+            });
+
+            fieldset.appendChild(optionsContainer);
+
+            const checkButton =
+              document.createElement("button");
+
+            checkButton.type = "button";
+            checkButton.className =
+              "button button-primary";
+
+            checkButton.textContent =
+              "Check answer";
+
+            const message =
+              document.createElement("p");
+
+            message.className =
+              "question-message";
+
+            message.setAttribute(
+              "role",
+              "status"
+            );
+
+            message.setAttribute(
+              "aria-live",
+              "polite"
+            );
+
+            const explanation =
+              document.createElement("div");
+
+            explanation.className =
+              "answer-explanation";
+
+            explanation.hidden = true;
+
+            checkButton.addEventListener(
+              "click",
+              function () {
+                if (
+                  fieldset.dataset.answered ===
+                  "true"
+                ) {
+                  return;
+                }
+
+                const selected =
+                  fieldset.querySelector(
+                    'input[name="' +
+                      prefix +
+                      "-question-" +
+                      questionIndex +
+                      '"]:checked'
+                  );
+
+                if (!selected) {
+                  message.className =
+                    "question-message warning";
+
+                  message.textContent =
+                    "Select an answer before checking.";
+
+                  return;
+                }
+
+                const selectedIndex =
+                  Number(selected.value);
+
+                const selectedOption =
+                  displayedOptions[selectedIndex];
+
+                const labels =
+                  fieldset.querySelectorAll(
+                    ".option-label"
+                  );
+
+                const correctIndex =
+                  displayedOptions.findIndex(
+                    function (option) {
+                      return option.correct;
+                    }
+                  );
+
+                fieldset.dataset.answered =
+                  "true";
+
+                answeredCount += 1;
+
+                if (selectedOption.correct) {
+                  score += 1;
+
+                  message.className =
+                    "question-message correct";
+
+                  message.textContent =
+                    "Correct.";
+
+                  labels[
+                    selectedIndex
+                  ].classList.add(
+                    "selected-correct"
+                  );
+                } else {
+                  message.className =
+                    "question-message incorrect";
+
+                  message.textContent =
+                    "Not quite. Review the explanation below.";
+
+                  labels[
+                    selectedIndex
+                  ].classList.add(
+                    "selected-incorrect"
+                  );
+
+                  labels[
+                    correctIndex
+                  ].classList.add(
+                    "correct-answer"
+                  );
+                }
+
+                fieldset
+                  .querySelectorAll("input")
+                  .forEach(function (input) {
+                    input.disabled = true;
+                  });
+
+                checkButton.disabled = true;
+
+                const heading =
+                  document.createElement("h3");
+
+                heading.textContent =
+                  "Answer review";
+
+                const correctAnswer =
+                  document.createElement("p");
+
+                const correctAnswerLabel =
+                  document.createElement("strong");
+
+                correctAnswerLabel.textContent =
+                  "Correct answer: ";
+
+                correctAnswer.appendChild(
+                  correctAnswerLabel
+                );
+
+                correctAnswer.appendChild(
+                  document.createTextNode(
+                    displayedOptions[
+                      correctIndex
+                    ].text
+                  )
+                );
+
+                const explanationList =
+                  document.createElement("ul");
+
+                displayedOptions.forEach(
+                  function (option) {
+                    const listItem =
+                      document.createElement("li");
+
+                    const status =
+                      document.createElement("span");
+
+                    status.className =
+                      option.correct
+                        ? "correct-text"
+                        : "incorrect-text";
+
+                    status.textContent =
+                      option.correct
+                        ? "Correct: "
+                        : "Incorrect: ";
+
+                    listItem.appendChild(status);
+
+                    listItem.appendChild(
+                      document.createTextNode(
+                        option.explanation
+                      )
+                    );
+
+                    explanationList.appendChild(
+                      listItem
+                    );
+                  }
+                );
+
+                explanation.innerHTML = "";
+                explanation.appendChild(heading);
+
+                explanation.appendChild(
+                  correctAnswer
+                );
+
+                explanation.appendChild(
+                  explanationList
+                );
+
+                explanation.hidden = false;
+
+                updateProgress();
+
+                if (
+                  answeredCount ===
+                  questions.length
+                ) {
+                  showSummary();
+                }
+              }
+            );
+
+            fieldset.appendChild(checkButton);
+            fieldset.appendChild(message);
+            fieldset.appendChild(explanation);
+            container.appendChild(fieldset);
+          });
+        }
+
+        resetButton.addEventListener(
+          "click",
+          function () {
+            renderQuiz();
+
+            document
+              .getElementById(
+                prefix + "-quiz-title"
+              )
+              .scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+              });
+          }
+        );
+
+        renderQuiz();
+      }
+
+      /*
+        Initialize both activities
+      */
+
+      createOrderingActivity(
+        "sperm",
+        activities.sperm.orderSteps
+      );
+
+      createQuiz(
+        "sperm",
+        activities.sperm.quiz
+      );
+
+      createOrderingActivity(
+        "oocyte",
+        activities.oocyte.orderSteps
+      );
+
+      createQuiz(
+        "oocyte",
+        activities.oocyte.quiz
+      );
+    })();
+  </script></p></body></html>
